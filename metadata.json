@@ -1,0 +1,6 @@
+{
+  "name": "Movie Ticket Booking System",
+  "description": "A Core Java Movie Ticket Booking System with a live in-browser console simulator, interactive UML diagrams, comprehensive class documentations, and a fully production-ready Java code explorer.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
