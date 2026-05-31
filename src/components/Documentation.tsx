@@ -9,25 +9,25 @@ export default function Documentation() {
       title: "Encapsulation",
       summary: "Restricts direct access to some of the object's components, which is a key security measure.",
       desc: "Every model class e.g., Person, Movie, Seat has private attributes (fields) that are safe from arbitrary external mutations. Accessibility is exclusively handled using public Getter and Setter methods, ensuring safe state transitions (like validateSeat before reserving).",
-      icon: <ShieldCheck className="w-5 h-5 text-indigo-400" />
+      icon: <ShieldCheck className="w-5 h-5 text-[#B88E2F]" />
     },
     {
       title: "Abstraction",
       summary: "Hides complex implementation details and only shows essential features of an object.",
       desc: "Demonstrated through the abstract 'Person' class. Main menu logics only deal with a standard generic Person object returned by system login, completely detaching the credentials checking mechanism from concrete implementations.",
-      icon: <Layers className="w-5 h-5 text-indigo-400" />
+      icon: <Layers className="w-5 h-5 text-[#B88E2F]" />
     },
     {
       title: "Inheritance",
       summary: "Models relationship linkages ('is-a') enabling code reuse across hierarchies.",
       desc: "Both 'User' and 'Admin' classes extend 'Person'. They inherit common fields (username, password, role) and behavior from Person, avoiding duplicate declarations while writing custom details specifically (bookingHistory inside User, employeeId inside Admin).",
-      icon: <GitCommit className="w-5 h-5 text-indigo-400" />
+      icon: <GitCommit className="w-5 h-5 text-[#B88E2F]" />
     },
     {
       title: "Polymorphism",
       summary: "Processes objects differently based on their data type or class classification.",
       desc: "Represented through method overriding. The abstract 'getProfileSummary()' method in Person is implemented differently in User (returning email, phone, bookings count) and Admin (returning Employee level credentials). Invoking profile information polymorphic-ally matches runtime type automatically.",
-      icon: <Settings className="w-5 h-5 text-indigo-400" />
+      icon: <Settings className="w-5 h-5 text-[#B88E2F]" />
     }
   ];
 
@@ -60,13 +60,13 @@ export default function Documentation() {
   return (
     <div className="flex flex-col gap-6" id="java-documentation">
       {/* Navigation Tabs */}
-      <div className="flex flex-wrap gap-1 border-b border-white/10 pb-0.5">
+      <div className="flex flex-wrap gap-1 border-b border-black/10 pb-0.5">
         <button
           onClick={() => setActiveTab("oop")}
           className={`px-5 py-3 text-xs md:text-sm transition-all cursor-pointer ${
             activeTab === "oop"
-              ? "text-[#D4AF37] border-b-2 border-[#D4AF37] font-serif italic font-bold"
-              : "text-white/40 hover:text-[#D4AF37]/80 hover:bg-white/5 font-mono uppercase tracking-[0.15em]"
+              ? "text-[#B88E2F] border-b-2 border-[#B88E2F] font-serif italic font-bold"
+              : "text-black/40 hover:text-[#B88E2F]/80 hover:bg-black/5 font-mono uppercase tracking-[0.15em]"
           }`}
         >
           OOP Architecture
@@ -75,8 +75,8 @@ export default function Documentation() {
           onClick={() => setActiveTab("classes")}
           className={`px-5 py-3 text-xs md:text-sm transition-all cursor-pointer ${
             activeTab === "classes"
-              ? "text-[#D4AF37] border-b-2 border-[#D4AF37] font-serif italic font-bold"
-              : "text-white/40 hover:text-[#D4AF37]/80 hover:bg-white/5 font-mono uppercase tracking-[0.15em]"
+              ? "text-[#B88E2F] border-b-2 border-[#B88E2F] font-serif italic font-bold"
+              : "text-black/40 hover:text-[#B88E2F]/80 hover:bg-black/5 font-mono uppercase tracking-[0.15em]"
           }`}
         >
           Classes & Roles
@@ -85,8 +85,8 @@ export default function Documentation() {
           onClick={() => setActiveTab("exceptions")}
           className={`px-5 py-3 text-xs md:text-sm transition-all cursor-pointer ${
             activeTab === "exceptions"
-              ? "text-[#D4AF37] border-b-2 border-[#D4AF37] font-serif italic font-bold"
-              : "text-white/40 hover:text-[#D4AF37]/80 hover:bg-white/5 font-mono uppercase tracking-[0.15em]"
+              ? "text-[#B88E2F] border-b-2 border-[#B88E2F] font-serif italic font-bold"
+              : "text-black/40 hover:text-[#B88E2F]/80 hover:bg-black/5 font-mono uppercase tracking-[0.15em]"
           }`}
         >
           Exception Handling
@@ -95,8 +95,8 @@ export default function Documentation() {
           onClick={() => setActiveTab("structures")}
           className={`px-5 py-3 text-xs md:text-sm transition-all cursor-pointer ${
             activeTab === "structures"
-              ? "text-[#D4AF37] border-b-2 border-[#D4AF37] font-serif italic font-bold"
-              : "text-white/40 hover:text-[#D4AF37]/80 hover:bg-white/5 font-mono uppercase tracking-[0.15em]"
+              ? "text-[#B88E2F] border-b-2 border-[#B88E2F] font-serif italic font-bold"
+              : "text-black/40 hover:text-[#B88E2F]/80 hover:bg-black/5 font-mono uppercase tracking-[0.15em]"
           }`}
         >
           Data Structures
@@ -108,21 +108,21 @@ export default function Documentation() {
         {/* OOP Tab */}
         {activeTab === "oop" && (
           <div className="space-y-6 animate-fadeIn">
-            <div className="text-white/60 text-xs md:text-sm leading-relaxed max-w-3xl font-serif italic">
+            <div className="text-black/60 text-xs md:text-sm leading-relaxed max-w-3xl font-serif italic font-medium">
               Cineplex Core Booking Engine relies on strict Object-Oriented Programming (OOP) paradigms to engineer a highly modular, secure, and easily extended software sandbox structure:
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {oopPrinciples.map((op) => (
-                <div key={op.title} className="bg-[#141414] border border-white/5 p-6 rounded-none hover:border-[#D4AF37]/35 transition-all duration-300 flex items-start gap-4">
-                  <div className="bg-[#D4AF37]/10 p-2.5 rounded-none border border-[#D4AF37]/20 text-[#D4AF37]">
+                <div key={op.title} className="bg-white border border-black/10 p-6 rounded-none hover:border-[#B88E2F]/45 transition-all duration-300 flex items-start gap-4 shadow-sm">
+                  <div className="bg-[#B88E2F]/10 p-2.5 rounded-none border border-[#B88E2F]/20 text-[#B88E2F]">
                     {op.icon}
                   </div>
                   <div>
-                    <h4 className="text-sm font-serif italic text-white tracking-wide">{op.title}</h4>
-                    <span className="text-[10px] text-[#D4AF37] leading-tight block mt-1 mb-2.5 font-mono uppercase tracking-wider">
+                    <h4 className="text-sm font-serif italic text-black tracking-wide font-bold">{op.title}</h4>
+                    <span className="text-[10px] text-[#B88E2F] leading-tight block mt-1 mb-2.5 font-mono uppercase tracking-wider font-semibold">
                       {op.summary}
                     </span>
-                    <p className="text-xs text-white/50 leading-relaxed">
+                    <p className="text-xs text-black/60 leading-relaxed font-sans">
                       {op.desc}
                     </p>
                   </div>
@@ -135,24 +135,24 @@ export default function Documentation() {
         {/* Classes Tab */}
         {activeTab === "classes" && (
           <div className="space-y-4 animate-fadeIn">
-            <div className="text-white/60 text-xs md:text-sm font-serif italic pb-2">
+            <div className="text-black/70 text-xs md:text-sm font-serif italic pb-2">
               The layout incorporates precise, single-responsibility class blueprints matching real-world cinema logistics. Observe their distinct duties:
             </div>
-            <div className="border border-white/10 rounded-none overflow-hidden shadow-xl">
-              <table className="w-full text-left text-xs text-white/50">
-                <thead className="bg-black text-white/40 uppercase font-mono tracking-[0.2em] text-[9px] border-b border-white/5">
+            <div className="border border-black/10 rounded-none overflow-hidden shadow-sm">
+              <table className="w-full text-left text-xs text-black/60">
+                <thead className="bg-[#FAF9F5] text-black/55 uppercase font-mono tracking-[0.2em] text-[9px] border-b border-black/10">
                   <tr>
                     <th className="px-6 py-4">Class Name</th>
                     <th className="px-6 py-4">Design Role</th>
                     <th className="px-6 py-4 hidden md:table-cell">Responsibility Detail</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/5">
+                <tbody className="divide-y divide-black/5 bg-white">
                   {classExplanations.map((cle) => (
-                    <tr key={cle.name} className="hover:bg-white/5 bg-[#141414]/50 transition-colors">
-                      <td className="px-6 py-4 font-serif italic font-bold text-[#D4AF37] text-sm">{cle.name}</td>
-                      <td className="px-6 py-4 text-white/80 font-mono text-[10px] uppercase tracking-wider">{cle.role}</td>
-                      <td className="px-6 py-4 text-white/50 leading-relaxed text-xs hidden md:table-cell">{cle.detail}</td>
+                    <tr key={cle.name} className="hover:bg-black/5 transition-colors">
+                      <td className="px-6 py-4 font-serif italic font-bold text-[#B88E2F] text-sm">{cle.name}</td>
+                      <td className="px-6 py-4 text-black font-mono text-[10px] uppercase tracking-wider font-medium">{cle.role}</td>
+                      <td className="px-6 py-4 text-black/60 leading-relaxed text-xs hidden md:table-cell font-sans">{cle.detail}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -164,11 +164,11 @@ export default function Documentation() {
         {/* Exceptions Tab */}
         {activeTab === "exceptions" && (
           <div className="space-y-6 animate-fadeIn">
-            <div className="bg-[#D4AF37]/5 border border-[#D4AF37]/30 p-5 rounded-none flex gap-4">
-              <AlertTriangle className="text-[#D4AF37] w-5 h-5 shrink-0 mt-0.5" />
+            <div className="bg-[#B88E2F]/5 border border-[#B88E2F]/30 p-5 rounded-none flex gap-4">
+              <AlertTriangle className="text-[#B88E2F] w-5 h-5 shrink-0 mt-0.5" />
               <div>
-                <h4 className="text-xs uppercase tracking-[0.15em] font-bold text-[#D4AF37] font-mono">Robust Error Trapping</h4>
-                <p className="text-xs text-white/60 leading-relaxed mt-1">
+                <h4 className="text-xs uppercase tracking-[0.15em] font-bold text-[#B88E2F] font-mono">Robust Error Trapping</h4>
+                <p className="text-xs text-black/60 leading-relaxed mt-1 font-sans">
                   Instead of standard app exit crashes, the program models standard operational exceptions extending <code>com.movieticket.booking.BookingSystemException</code>, cleanly captured within <code>try-catch</code> templates.
                 </p>
               </div>
@@ -176,12 +176,12 @@ export default function Documentation() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {exceptions.map((ex) => (
-                <div key={ex.title} className="bg-[#141414] border border-white/5 p-5 rounded-none hover:border-red-400/25 transition-all duration-300">
-                  <div className="flex items-center gap-2 text-xs text-red-400 font-mono font-bold uppercase tracking-wider mb-2.5">
+                <div key={ex.title} className="bg-white border border-black/10 p-5 rounded-none hover:border-red-600/25 transition-all duration-300 shadow-sm">
+                  <div className="flex items-center gap-2 text-xs text-red-600 font-mono font-bold uppercase tracking-wider mb-2.5">
                     <Code className="w-4 h-4 text-red-500" />
                     <span>{ex.title}</span>
                   </div>
-                  <p className="text-xs text-white/50 leading-relaxed">
+                  <p className="text-xs text-black/60 leading-relaxed font-sans">
                     {ex.cause}
                   </p>
                 </div>
@@ -193,24 +193,24 @@ export default function Documentation() {
         {/* Data Structures Tab */}
         {activeTab === "structures" && (
           <div className="space-y-6 animate-fadeIn">
-            <div className="text-white/60 text-xs md:text-sm leading-relaxed max-w-3xl font-serif italic">
+            <div className="text-black/60 text-xs md:text-sm leading-relaxed max-w-3xl font-serif italic font-medium">
               Carefully chosen structures from the Java Collections Framework optimize search lookups and resource allocation:
             </div>
             
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
               {dataStructures.map((ds) => (
-                <div key={ds.name} className="bg-[#141414] border border-white/5 p-6 rounded-none flex flex-col justify-between hover:border-[#D4AF37]/25 transition-all duration-300">
+                <div key={ds.name} className="bg-white border border-black/10 p-6 rounded-none flex flex-col justify-between hover:border-[#B88E2F]/25 transition-all duration-300 shadow-sm">
                   <div>
-                    <span className="text-[9px] bg-white/5 text-[#D4AF37] font-mono px-2.5 py-1 rounded-none border border-white/10 self-start block mb-3.5 w-fit uppercase tracking-widest">
+                    <span className="text-[9px] bg-black/5 text-[#B88E2F] font-mono px-2.5 py-1 rounded-none border border-black/10 self-start block mb-3.5 w-fit uppercase tracking-widest font-semibold">
                       {ds.reason}
                     </span>
-                    <h4 className="text-sm font-serif italic text-white tracking-widest mb-2">{ds.name}</h4>
-                    <p className="text-xs text-white/50 leading-relaxed">
+                    <h4 className="text-sm font-serif italic text-black tracking-widest mb-2 font-bold">{ds.name}</h4>
+                    <p className="text-xs text-black/60 leading-relaxed font-sans">
                       {ds.detail}
                     </p>
                   </div>
-                  <div className="border-t border-white/5 mt-5 pt-3 flex items-center gap-1.5 text-[9px] text-[#D4AF37] uppercase font-mono font-semibold tracking-widest">
-                    <Cpu className="w-3.5 h-3.5 text-[#D4AF37]" />
+                  <div className="border-t border-black/5 mt-5 pt-3 flex items-center gap-1.5 text-[9px] text-[#B88E2F] uppercase font-mono font-semibold tracking-widest">
+                    <Cpu className="w-3.5 h-3.5 text-[#B88E2F]" />
                     <span>Performance choice</span>
                   </div>
                 </div>

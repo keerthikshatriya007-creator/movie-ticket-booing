@@ -223,61 +223,61 @@ export default function UMLDiagram() {
     const isRelated = hoveredClass && umlClasses.find(c => c.name === hoveredClass)?.relations.some(r => r.target === cName);
     const isRelatedBack = hoveredClass && umlClasses.find(c => c.name === cName)?.relations.some(r => r.target === hoveredClass);
 
-    if (isHovered) return "border-[#D4AF37] ring-1 ring-[#D4AF37]/40 scale-[1.015]";
-    if (isRelated || isRelatedBack) return "border-[#D4AF37]/50 shadow-md transform -translate-y-0.5";
+    if (isHovered) return "border-[#B88E2F] ring-1 ring-[#B88E2F]/30 scale-[1.015]";
+    if (isRelated || isRelatedBack) return "border-[#B88E2F]/50 shadow-md transform -translate-y-0.5";
 
     switch (type) {
       case "abstract":
-        return "border-white/10 hover:border-[#D4AF37]/30";
+        return "border-black/10 hover:border-[#B88E2F]/30";
       default:
-        return "border-white/5 hover:border-[#D4AF37]/30";
+        return "border-black/5 hover:border-[#B88E2F]/30";
     }
   };
 
   const getClassBg = (type: string) => {
     switch (type) {
       case "abstract":
-        return "bg-black/80";
+        return "bg-black/5";
       default:
-        return "bg-[#141414]";
+        return "bg-white";
     }
   };
 
   const getClassIcon = (type: string) => {
     switch (type) {
       case "abstract":
-        return <Layers className="w-4 h-4 text-[#D4AF37]" />;
+        return <Layers className="w-4 h-4 text-[#B88E2F]" />;
       default:
-        return <Users className="w-4 h-4 text-[#D4AF37]/80" />;
+        return <Users className="w-4 h-4 text-[#B88E2F]/80" />;
     }
   };
 
   return (
     <div className="flex flex-col gap-6" id="java-uml-diagram">
       {/* Legend & Help Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 bg-[#141414] border border-white/10 p-6 rounded-none shadow-xl">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 bg-white border border-black/10 p-6 rounded-none shadow-sm animate-fadeIn">
         <div className="flex items-start gap-3">
-          <HelpCircle className="w-5 h-5 text-[#D4AF37] shrink-0 mt-0.5" />
+          <HelpCircle className="w-5 h-5 text-[#B88E2F] shrink-0 mt-0.5" />
           <div className="flex flex-col">
-            <h4 className="text-sm font-serif italic text-white tracking-wider">Interactive Class Diagrams & Relationships</h4>
-            <p className="text-xs text-white/50 leading-relaxed max-w-xl">
+            <h4 className="text-sm font-serif italic text-black tracking-wider">Interactive Class Diagrams & Relationships</h4>
+            <p className="text-xs text-black/50 leading-relaxed max-w-xl">
               Hover over any class node to witness logical encapsulation boundaries, inheritance constructs, and object compositions highlighting dynamically.
             </p>
           </div>
         </div>
 
         {/* Legend pills */}
-        <div className="flex flex-wrap items-center gap-4 border-l border-white/5 md:pl-6 pt-3 md:pt-0">
-          <div className="flex items-center gap-2 text-[11px] text-white/60 font-mono">
-            <span className="w-2 h-2 bg-[#D4AF37] inline-block"></span>
+        <div className="flex flex-wrap items-center gap-4 border-l border-black/5 md:pl-6 pt-3 md:pt-0">
+          <div className="flex items-center gap-2 text-[11px] text-black/60 font-mono">
+            <span className="w-2 h-2 bg-[#B88E2F] inline-block"></span>
             <span>Inheritance</span>
           </div>
-          <div className="flex items-center gap-2 text-[11px] text-white/60 font-mono">
+          <div className="flex items-center gap-2 text-[11px] text-black/60 font-mono">
             <span className="w-2 h-2 bg-stone-500 inline-block"></span>
             <span>Association</span>
           </div>
-          <div className="flex items-center gap-2 text-[11px] text-white/60 font-mono">
-            <span className="w-2 h-2 bg-[#C19A2E] inline-block"></span>
+          <div className="flex items-center gap-2 text-[11px] text-black/60 font-mono">
+            <span className="w-2 h-2 bg-[#9E7415] inline-block"></span>
             <span>Composition</span>
           </div>
         </div>
@@ -290,43 +290,43 @@ export default function UMLDiagram() {
             key={uml.name}
             onMouseEnter={() => setHoveredClass(uml.name)}
             onMouseLeave={() => setHoveredClass(null)}
-            className={`flex flex-col backdrop-blur-sm rounded-none overflow-hidden border shadow-xl transition-all duration-300 ${getClassBg(
+            className={`flex flex-col backdrop-blur-sm rounded-none overflow-hidden border shadow-sm transition-all duration-300 ${getClassBg(
               uml.type
             )} ${getClassBorderClass(uml.name, uml.type)}`}
           >
             {/* Header */}
-            <div className={`px-4.5 py-3.5 border-b border-white/5 flex items-center justify-between ${uml.type === "abstract" ? "bg-black/60" : "bg-black/30"}`}>
+            <div className={`px-4.5 py-3.5 border-b border-black/10 flex items-center justify-between ${uml.type === "abstract" ? "bg-black/5" : "bg-black/1"}`}>
               <div className="flex items-center gap-2.5">
                 {getClassIcon(uml.type)}
                 <div>
                   <div className="flex items-center gap-1.5 align-baseline">
-                    <span className="text-sm font-serif italic text-white tracking-wide">{uml.name}</span>
+                    <span className="text-sm font-serif italic text-black tracking-wide">{uml.name}</span>
                     {uml.superClass && (
-                      <span className="text-[9px] bg-[#D4AF37]/10 text-[#D4AF37] px-2 py-0.5 rounded-none font-mono border border-[#D4AF37]/20 uppercase tracking-wider">
+                      <span className="text-[9px] bg-[#B88E2F]/10 text-[#B88E2F] px-2 py-0.5 rounded-none font-mono border border-[#B88E2F]/20 uppercase tracking-wider font-semibold">
                         extends {uml.superClass}
                       </span>
                     )}
                   </div>
-                  <span className="text-[10px] text-white/30 block font-mono leading-none mt-1">
+                  <span className="text-[10px] text-black/35 block font-mono leading-none mt-1">
                     {uml.package}
                   </span>
                 </div>
               </div>
-              <span className={`text-[8px] px-2 py-0.5 rounded-none font-bold tracking-[0.15em] uppercase ${
+              <span className={`text-[8px] px-2 py-0.5 rounded-none font-bold tracking-[0.15em] uppercase border ${
                 uml.type === "abstract"
-                  ? "bg-white/5 text-white/70 border border-white/10"
-                  : "bg-[#D4AF37]/15 text-[#D4AF37] border border-[#D4AF37]/35"
+                  ? "bg-black/5 text-black/60 border-black/10"
+                  : "bg-[#B88E2F]/10 text-[#B88E2F] border-[#B88E2F]/25"
               }`}>
                 {uml.type}
               </span>
             </div>
 
             {/* Properties List */}
-            <div className="p-4 border-b border-white/5 bg-black/10">
-              <span className="text-[9px] text-[#D4AF37] uppercase tracking-[0.15em] font-bold block mb-2 font-sans">
+            <div className="p-4 border-b border-black/5 bg-[#FAF9F5]/40 animate-fadeIn">
+              <span className="text-[9px] text-[#B88E2F] uppercase tracking-[0.15em] font-bold block mb-2 font-sans">
                 properties
               </span>
-              <div className="space-y-1.5 font-mono text-[11px] text-white/70">
+              <div className="space-y-1.5 font-mono text-[11px] text-black/70 font-medium">
                 {uml.fields.map((f, i) => (
                   <div key={i} className="truncate" title={f}>
                     {f}
@@ -338,17 +338,17 @@ export default function UMLDiagram() {
             {/* Methods List */}
             <div className="p-4 flex-1 flex flex-col justify-between">
               <div>
-                <span className="text-[9px] text-[#D4AF37] uppercase tracking-[0.15em] font-bold block mb-2 font-sans font-medium">
+                <span className="text-[9px] text-[#B88E2F] uppercase tracking-[0.15em] font-bold block mb-2 font-sans font-semibold">
                   methods
                 </span>
-                <div className="space-y-1 font-mono text-[11px] text-white/50">
+                <div className="space-y-1 font-mono text-[11px] text-black/55">
                   {uml.methods.slice(0, 5).map((m, i) => (
-                    <div key={i} className="truncate" title={m}>
+                    <div key={i} className="truncate font-medium hover:text-[#B88E2F]" title={m}>
                       {m}
                     </div>
                   ))}
                   {uml.methods.length > 5 && (
-                    <div className="text-[10px] italic text-white/20 pt-1 font-mono">
+                    <div className="text-[10px] italic text-black/35 pt-1 font-mono">
                       + {uml.methods.length - 5} additional procedures...
                     </div>
                   )}
@@ -357,22 +357,22 @@ export default function UMLDiagram() {
 
               {/* Relationship summary on card border */}
               {uml.relations.length > 0 && (
-                <div className="mt-5 pt-3 border-t border-white/5">
-                  <div className="flex flex-wrap gap-1.5">
+                <div className="mt-5 pt-3 border-t border-black/5">
+                  <div className="flex flex-wrap gap-1.5 animate-fadeIn">
                     {uml.relations.map((r, i) => (
                       <span
                         key={i}
-                        className={`text-[9px] px-2 py-0.5 rounded-none font-mono flex items-center gap-1 leading-none ${
+                        className={`text-[9.5px] px-2 py-0.5 rounded-none font-mono flex items-center gap-1 leading-none border ${
                           r.type === "inherits"
-                            ? "bg-[#D4AF37]/5 text-[#D4AF37] border border-[#D4AF37]/20"
+                            ? "bg-[#B88E2F]/5 text-[#B88E2F] border-[#B88E2F]/15 font-semibold"
                             : r.type === "composes"
-                            ? "bg-stone-500/10 text-stone-300 border border-stone-500/20"
-                            : "bg-white/5 text-white/70 border border-white/10"
+                            ? "bg-stone-50 border-stone-200 text-stone-600"
+                            : "bg-black/5 text-black/60 border-black/10"
                         }`}
                       >
                         {r.label} 
-                        <span className="text-white/20">→</span> 
-                        <strong className="text-white/80 font-bold">{r.target}</strong>
+                        <span className="text-black/20">→</span> 
+                        <strong className="text-black/80 font-bold">{r.target}</strong>
                       </span>
                     ))}
                   </div>
